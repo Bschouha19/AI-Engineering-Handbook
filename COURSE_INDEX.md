@@ -64,8 +64,8 @@
 |---|---------|--------|-----------|
 | 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | ✅ | Orchestrator/worker patterns, coordination, state management |
 | 12 | [Local AI: Ollama, LM Studio & Self-Hosted Models](./chapters/chapter-12-local-ai.md) | ✅ | Running models locally, model selection, hardware requirements, Modelfile |
-| 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | 🔜 | When to fine-tune, dataset preparation, training, evaluation |
-| 14 | [Multi-Modal AI: Images, Audio & Video](./chapters/chapter-14-multimodal.md) | ⬜ | Vision, speech-to-text, image generation, multi-modal pipelines |
+| 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | ✅ | When to fine-tune, dataset preparation, training, evaluation |
+| 14 | [Multi-Modal AI: Images, Audio & Video](./chapters/chapter-14-multimodal.md) | 🔜 | Vision, speech-to-text, image generation, multi-modal pipelines |
 
 **Module 4 Learning Goal:** Build systems that coordinate multiple AI models, run models locally, and process non-text data.
 
@@ -151,9 +151,9 @@ Ch 15–19 (All production chapters)
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 12 |
+| ✅ Complete | 13 |
 | 🔜 Next | 1 |
-| ⬜ Not started | 7 |
+| ⬜ Not started | 6 |
 
 ---
 

@@ -1867,7 +1867,7 @@ class SystemBudget:
         self.max_calls = max_calls
         self.max_cost_usd = max_cost_usd
 
-    def check(self) -> Optional[str]:
+    def check(self) -> str | None:
         if self.calls >= self.max_calls:
             return f"System call limit ({self.max_calls}) reached"
         if self.cost >= self.max_cost_usd:

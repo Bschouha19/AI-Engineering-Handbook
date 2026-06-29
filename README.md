@@ -30,14 +30,14 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 ## Progress
 
-**12 of 20 chapters complete** — Chapter 12 (Local AI: Ollama & LM Studio) now complete.
+**13 of 20 chapters complete** — Chapter 13 (Fine-Tuning & Model Customization) now complete.
 
 | Module | Chapters | Status |
 |--------|----------|--------|
 | 1 — Foundations | Ch 01–03 | ✅ Complete |
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
 | 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
-| 4 — Advanced AI Systems | Ch 11–14 | 🔜 Ch 13 next |
+| 4 — Advanced AI Systems | Ch 11–14 | 🔜 Ch 14 next |
 | 5 — Production AI Engineering | Ch 15–20 | ⬜ Not started |
 
 ---
@@ -75,7 +75,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 |---|---------|--------|
 | 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | ✅ Complete |
 | 12 | [Local AI: Ollama, LM Studio & Self-Hosted Models](./chapters/chapter-12-local-ai.md) | ✅ Complete |
-| 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | ⬜ |
+| 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | ✅ Complete |
 | 14 | [Multi-Modal AI: Images, Audio & Video](./chapters/chapter-14-multimodal.md) | ⬜ |
 
 ### Module 5 — Production AI Engineering
