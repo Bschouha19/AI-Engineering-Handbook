@@ -596,8 +596,8 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 14 | Multi-Modal AI | chapters/chapter-14-multimodal.md | ✅ Complete |
 | 15 | Production Architecture | chapters/chapter-15-production-architecture.md | ✅ Complete |
 | 16 | Testing & Evaluating AI Systems | chapters/chapter-16-testing-evaluation.md | ✅ Complete |
-| 17 | AI Observability & Monitoring | chapters/chapter-17-observability.md | 🔜 Next |
-| 18 | AI Security & Safety | chapters/chapter-18-security.md | ⬜ |
+| 17 | AI Observability & Monitoring | chapters/chapter-17-observability.md | ✅ Complete |
+| 18 | AI Security & Safety | chapters/chapter-18-security.md | 🔜 Next |
 | 19 | Cost Engineering | chapters/chapter-19-cost-engineering.md | ⬜ |
 | 20 | Capstone Project | chapters/chapter-20-capstone.md | ⬜ |
 

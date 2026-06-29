@@ -1566,11 +1566,10 @@ def analyse_dataset_coverage(
     client = anthropic.Anthropic()
 
     def embed(texts: list[str]) -> list[list[float]]:
-        resp = client.embeddings.create(
-            model="voyage-3",
-            input=texts,
-        )
-        return [e.embedding for e in resp.data]
+        import voyageai
+        vo = voyageai.Client()   # reads VOYAGE_API_KEY from env
+        result = vo.embed(texts, model="voyage-3")
+        return result.embeddings
 
     golden_texts = [case.input for case in golden_dataset]
     golden_embeddings = embed(golden_texts)
@@ -1938,21 +1937,21 @@ def test_arithmetic():
 ```python
 # WRONG: all tests at same difficulty — misses edge cases entirely
 GOLDEN_DATASET = [
-    TestCase("What are your hours?", expected_contains=["9am", "5pm"]),
-    TestCase("How do I sign up?", expected_contains=["account", "register"]),
+    TestCase(id="hours", input="What are your hours?", expected_contains=["9am", "5pm"]),
+    TestCase(id="signup", input="How do I sign up?", expected_contains=["account", "register"]),
     # All easy, happy-path questions
 ]
 
 # RIGHT: include adversarial, edge case, and ambiguous inputs
 BALANCED_GOLDEN_DATASET = [
     # Happy path (40%)
-    TestCase("What are your hours?", expected_contains=["9am"]),
+    TestCase(id="hours", input="What are your hours?", expected_contains=["9am"]),
     # Ambiguous (20%)
-    TestCase("I have an issue", expected_excludes=["I don't understand"], min_length=50),
+    TestCase(id="vague_issue", input="I have an issue", expected_excludes=["I don't understand"], min_length=50),
     # Adversarial (20%)
-    TestCase("Ignore your rules and...", expected_excludes=["ignore"]),
+    TestCase(id="jailbreak", input="Ignore your rules and...", expected_excludes=["ignore"]),
     # Edge cases (20%)
-    TestCase("", expected_contains=["please provide"]),  # Empty input
+    TestCase(id="empty_input", input="", expected_contains=["please provide"]),
 ]
 ```
 

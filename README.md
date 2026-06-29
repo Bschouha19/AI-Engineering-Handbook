@@ -30,7 +30,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 ## Progress
 
-**16 of 20 chapters complete** — Chapter 16 (Testing & Evaluating AI Systems) now complete.
+**17 of 20 chapters complete** — Chapter 17 (AI Observability: Monitoring & Tracing) now complete.
 
 | Module | Chapters | Status |
 |--------|----------|--------|
@@ -38,7 +38,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
 | 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
 | 4 — Advanced AI Systems | Ch 11–14 | ✅ Complete |
-| 5 — Production AI Engineering | Ch 15–20 | 🔜 Ch 17 next |
+| 5 — Production AI Engineering | Ch 15–20 | 🔜 Ch 18 next |
 
 ---
 
@@ -84,8 +84,8 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 |---|---------|--------|
 | 15 | [Production Architecture: Building AI at Scale](./chapters/chapter-15-production-architecture.md) | ✅ Complete |
 | 16 | [Testing & Evaluating AI Systems](./chapters/chapter-16-testing-evaluation.md) | ✅ Complete |
-| 17 | [AI Observability: Monitoring & Tracing](./chapters/chapter-17-observability.md) | 🔜 |
-| 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | ⬜ |
+| 17 | [AI Observability: Monitoring & Tracing](./chapters/chapter-17-observability.md) | ✅ Complete |
+| 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | 🔜 |
 | 19 | [Cost Engineering: Running AI Without Going Broke](./chapters/chapter-19-cost-engineering.md) | ⬜ |
 | 20 | [Capstone: Build a Production AI System End-to-End](./chapters/chapter-20-capstone.md) | ⬜ |
 
