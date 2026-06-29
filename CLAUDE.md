@@ -584,8 +584,8 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 02 | How LLMs Work | chapters/chapter-02-how-llms-work.md | ✅ Complete |
 | 03 | Setting Up Your Dev Environment | chapters/chapter-03-dev-environment.md | ✅ Complete |
 | 04 | AI APIs, SDKs & Streaming | chapters/chapter-04-ai-apis-sdks.md | ✅ Complete |
-| 05 | Prompt Engineering | chapters/chapter-05-prompt-engineering.md | 🔜 Next |
-| 06 | Structured Outputs & Function Calling | chapters/chapter-06-structured-outputs.md | ⬜ |
+| 05 | Prompt Engineering | chapters/chapter-05-prompt-engineering.md | ✅ Complete |
+| 06 | Structured Outputs & Function Calling | chapters/chapter-06-structured-outputs.md | 🔜 Next |
 | 07 | Embeddings | chapters/chapter-07-embeddings.md | ⬜ |
 | 08 | Vector Databases | chapters/chapter-08-vector-databases.md | ⬜ |
 | 09 | RAG — Retrieval Augmented Generation | chapters/chapter-09-rag.md | ⬜ |
