@@ -30,7 +30,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 ## Progress
 
-**14 of 20 chapters complete** — Chapter 14 (Multi-Modal AI: Images, Audio & Video) now complete.
+**15 of 20 chapters complete** — Chapter 15 (Production Architecture: Building AI at Scale) now complete.
 
 | Module | Chapters | Status |
 |--------|----------|--------|
@@ -38,7 +38,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
 | 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
 | 4 — Advanced AI Systems | Ch 11–14 | ✅ Complete |
-| 5 — Production AI Engineering | Ch 15–20 | 🔜 Ch 15 next |
+| 5 — Production AI Engineering | Ch 15–20 | 🔜 Ch 16 next |
 
 ---
 
@@ -82,7 +82,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 | # | Chapter | Status |
 |---|---------|--------|
-| 15 | [Production Architecture: Building AI at Scale](./chapters/chapter-15-production-architecture.md) | ⬜ |
+| 15 | [Production Architecture: Building AI at Scale](./chapters/chapter-15-production-architecture.md) | ✅ Complete |
 | 16 | [Testing & Evaluating AI Systems](./chapters/chapter-16-testing-evaluation.md) | ⬜ |
 | 17 | [AI Observability: Monitoring & Tracing](./chapters/chapter-17-observability.md) | ⬜ |
 | 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | ⬜ |
