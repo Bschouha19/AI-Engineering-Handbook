@@ -51,7 +51,7 @@
 | 07 | [Embeddings: Teaching AI to Understand Meaning](./chapters/chapter-07-embeddings.md) | ✅ | Vector representations, semantic search, similarity, embedding models |
 | 08 | [Vector Databases: AI Memory at Scale](./chapters/chapter-08-vector-databases.md) | ✅ | Pinecone, Weaviate, ChromaDB, pgvector, indexing, querying |
 | 09 | [RAG: Retrieval Augmented Generation](./chapters/chapter-09-rag.md) | ✅ | Document ingestion, chunking, retrieval, generation, citation |
-| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | 🔜 | ReAct pattern, tool use, memory, planning, agent loops |
+| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | ✅ | ReAct pattern, tool use, memory, planning, agent loops |
 
 **Module 3 Learning Goal:** Build AI applications that work with your own data — not just the model's training data.
 
@@ -62,7 +62,7 @@
 
 | # | Chapter | Status | Key Skills |
 |---|---------|--------|-----------|
-| 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | ⬜ | Orchestrator/worker patterns, coordination, state management |
+| 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | 🔜 | Orchestrator/worker patterns, coordination, state management |
 | 12 | [Local AI: Ollama, LM Studio & Self-Hosted Models](./chapters/chapter-12-local-ai.md) | ⬜ | Running models locally, model selection, hardware requirements, Modelfile |
 | 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | ⬜ | When to fine-tune, dataset preparation, training, evaluation |
 | 14 | [Multi-Modal AI: Images, Audio & Video](./chapters/chapter-14-multimodal.md) | ⬜ | Vision, speech-to-text, image generation, multi-modal pipelines |
@@ -151,9 +151,9 @@ Ch 15–19 (All production chapters)
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 9 |
+| ✅ Complete | 10 |
 | 🔜 Next | 1 |
-| ⬜ Not started | 10 |
+| ⬜ Not started | 9 |
 
 ---
 

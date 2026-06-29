@@ -36,8 +36,8 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 |--------|----------|--------|
 | 1 — Foundations | Ch 01–03 | ✅ Complete |
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
-| 3 — Building AI Applications | Ch 07–10 | ✅ Ch 07–09 complete · 🔜 Ch 10 next |
-| 4 — Advanced AI Systems | Ch 11–14 | ⬜ Not started |
+| 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
+| 4 — Advanced AI Systems | Ch 11–14 | 🔜 Ch 11 next |
 | 5 — Production AI Engineering | Ch 15–20 | ⬜ Not started |
 
 ---
@@ -67,7 +67,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 | 07 | [Embeddings: Teaching AI to Understand Meaning](./chapters/chapter-07-embeddings.md) | ✅ Complete |
 | 08 | [Vector Databases: AI Memory at Scale](./chapters/chapter-08-vector-databases.md) | ✅ Complete |
 | 09 | [RAG: Retrieval Augmented Generation](./chapters/chapter-09-rag.md) | ✅ Complete |
-| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | 🔜 |
+| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | ✅ Complete |
 
 ### Module 4 — Advanced AI Systems
 
