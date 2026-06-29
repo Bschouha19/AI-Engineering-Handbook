@@ -30,14 +30,14 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 ## Progress
 
-**9 of 20 chapters complete** — Module 3 (Building AI Applications) now fully written.
+**11 of 20 chapters complete** — Chapter 11 (Multi-Agent Systems) now complete.
 
 | Module | Chapters | Status |
 |--------|----------|--------|
 | 1 — Foundations | Ch 01–03 | ✅ Complete |
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
 | 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
-| 4 — Advanced AI Systems | Ch 11–14 | 🔜 Ch 11 next |
+| 4 — Advanced AI Systems | Ch 11–14 | 🔜 Ch 12 next |
 | 5 — Production AI Engineering | Ch 15–20 | ⬜ Not started |
 
 ---
@@ -73,7 +73,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 | # | Chapter | Status |
 |---|---------|--------|
-| 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | ⬜ |
+| 11 | [Multi-Agent Systems & Orchestration](./chapters/chapter-11-multi-agent.md) | ✅ Complete |
 | 12 | [Local AI: Ollama, LM Studio & Self-Hosted Models](./chapters/chapter-12-local-ai.md) | ⬜ |
 | 13 | [Fine-Tuning & Model Customization](./chapters/chapter-13-fine-tuning.md) | ⬜ |
 | 14 | [Multi-Modal AI: Images, Audio & Video](./chapters/chapter-14-multimodal.md) | ⬜ |

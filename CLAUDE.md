@@ -590,8 +590,8 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 08 | Vector Databases | chapters/chapter-08-vector-databases.md | ✅ Complete |
 | 09 | RAG — Retrieval Augmented Generation | chapters/chapter-09-rag.md | ✅ Complete |
 | 10 | AI Agents & Tool Use | chapters/chapter-10-ai-agents.md | ✅ Complete |
-| 11 | Multi-Agent Systems | chapters/chapter-11-multi-agent.md | 🔜 Next |
-| 12 | Local AI: Ollama & LM Studio | chapters/chapter-12-local-ai.md | ⬜ |
+| 11 | Multi-Agent Systems | chapters/chapter-11-multi-agent.md | ✅ Complete |
+| 12 | Local AI: Ollama & LM Studio | chapters/chapter-12-local-ai.md | 🔜 Next |
 | 13 | Fine-Tuning & Model Customization | chapters/chapter-13-fine-tuning.md | ⬜ |
 | 14 | Multi-Modal AI | chapters/chapter-14-multimodal.md | ⬜ |
 | 15 | Production Architecture | chapters/chapter-15-production-architecture.md | ⬜ |
