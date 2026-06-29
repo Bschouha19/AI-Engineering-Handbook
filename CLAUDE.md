@@ -593,8 +593,8 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 11 | Multi-Agent Systems | chapters/chapter-11-multi-agent.md | ✅ Complete |
 | 12 | Local AI: Ollama & LM Studio | chapters/chapter-12-local-ai.md | ✅ Complete |
 | 13 | Fine-Tuning & Model Customization | chapters/chapter-13-fine-tuning.md | ✅ Complete |
-| 14 | Multi-Modal AI | chapters/chapter-14-multimodal.md | 🔜 Next |
-| 15 | Production Architecture | chapters/chapter-15-production-architecture.md | ⬜ |
+| 14 | Multi-Modal AI | chapters/chapter-14-multimodal.md | ✅ Complete |
+| 15 | Production Architecture | chapters/chapter-15-production-architecture.md | 🔜 Next |
 | 16 | Testing & Evaluating AI Systems | chapters/chapter-16-testing-evaluation.md | ⬜ |
 | 17 | AI Observability & Monitoring | chapters/chapter-17-observability.md | ⬜ |
 | 18 | AI Security & Safety | chapters/chapter-18-security.md | ⬜ |
