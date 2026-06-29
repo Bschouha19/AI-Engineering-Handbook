@@ -984,7 +984,6 @@ The single biggest predictor of fine-tuning success is dataset quality. 500 exce
 # Production example — building and curating a high-quality fine-tuning dataset
 
 import json
-import hashlib
 from anthropic import Anthropic
 
 client = Anthropic()
@@ -1713,7 +1712,9 @@ print(estimate_training_cost(n_examples=1000, n_epochs=3))
 
 ```python
 # WRONG: train on all data, then test on the same data
-trainer_args = TrainingArguments(no_eval=True)  # No validation set
+trainer_args = TrainingArguments(
+    eval_strategy="no",  # Disables evaluation entirely
+)
 # You will not detect overfitting until it hits production
 
 # RIGHT: always hold out 10% before training
