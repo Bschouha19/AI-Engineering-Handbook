@@ -35,7 +35,7 @@
 |---|---------|--------|-----------|
 | 04 | [AI APIs, SDKs & Streaming](./chapters/chapter-04-ai-apis-sdks.md) | ✅ | Multi-provider API calls, streaming, batching, error handling, retries |
 | 05 | [Prompt Engineering](./chapters/chapter-05-prompt-engineering.md) | ✅ | System prompts, few-shot, chain-of-thought, prompt templates, evaluation |
-| 06 | [Structured Outputs & Function Calling](./chapters/chapter-06-structured-outputs.md) | 🔜 | JSON output, schema enforcement, function definitions, tool mechanics |
+| 06 | [Structured Outputs & Function Calling](./chapters/chapter-06-structured-outputs.md) | ✅ | JSON output, schema enforcement, function definitions, tool mechanics |
 
 > **Note on Chapters 6 and 10:** Chapter 6 covers the mechanics of structured outputs and function calling — how to define tools and get structured JSON from a model. Chapter 10 builds on this foundation to create *agents* — AI systems that choose when and how to use those tools autonomously.
 
@@ -48,10 +48,10 @@
 
 | # | Chapter | Status | Key Skills |
 |---|---------|--------|-----------|
-| 07 | [Embeddings: Teaching AI to Understand Meaning](./chapters/chapter-07-embeddings.md) | ⬜ | Vector representations, semantic search, similarity, embedding models |
-| 08 | [Vector Databases: AI Memory at Scale](./chapters/chapter-08-vector-databases.md) | ⬜ | Pinecone, Weaviate, ChromaDB, pgvector, indexing, querying |
-| 09 | [RAG: Retrieval Augmented Generation](./chapters/chapter-09-rag.md) | ⬜ | Document ingestion, chunking, retrieval, generation, citation |
-| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | ⬜ | ReAct pattern, tool use, memory, planning, agent loops |
+| 07 | [Embeddings: Teaching AI to Understand Meaning](./chapters/chapter-07-embeddings.md) | ✅ | Vector representations, semantic search, similarity, embedding models |
+| 08 | [Vector Databases: AI Memory at Scale](./chapters/chapter-08-vector-databases.md) | ✅ | Pinecone, Weaviate, ChromaDB, pgvector, indexing, querying |
+| 09 | [RAG: Retrieval Augmented Generation](./chapters/chapter-09-rag.md) | ✅ | Document ingestion, chunking, retrieval, generation, citation |
+| 10 | [AI Agents: Autonomous AI Systems](./chapters/chapter-10-ai-agents.md) | 🔜 | ReAct pattern, tool use, memory, planning, agent loops |
 
 **Module 3 Learning Goal:** Build AI applications that work with your own data — not just the model's training data.
 
@@ -151,9 +151,9 @@ Ch 15–19 (All production chapters)
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 5 |
+| ✅ Complete | 9 |
 | 🔜 Next | 1 |
-| ⬜ Not started | 14 |
+| ⬜ Not started | 10 |
 
 ---
 

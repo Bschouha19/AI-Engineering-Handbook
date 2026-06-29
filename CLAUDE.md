@@ -585,11 +585,11 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 03 | Setting Up Your Dev Environment | chapters/chapter-03-dev-environment.md | ✅ Complete |
 | 04 | AI APIs, SDKs & Streaming | chapters/chapter-04-ai-apis-sdks.md | ✅ Complete |
 | 05 | Prompt Engineering | chapters/chapter-05-prompt-engineering.md | ✅ Complete |
-| 06 | Structured Outputs & Function Calling | chapters/chapter-06-structured-outputs.md | 🔜 Next |
-| 07 | Embeddings | chapters/chapter-07-embeddings.md | ⬜ |
-| 08 | Vector Databases | chapters/chapter-08-vector-databases.md | ⬜ |
-| 09 | RAG — Retrieval Augmented Generation | chapters/chapter-09-rag.md | ⬜ |
-| 10 | AI Agents & Tool Use | chapters/chapter-10-ai-agents.md | ⬜ |
+| 06 | Structured Outputs & Function Calling | chapters/chapter-06-structured-outputs.md | ✅ Complete |
+| 07 | Embeddings | chapters/chapter-07-embeddings.md | ✅ Complete |
+| 08 | Vector Databases | chapters/chapter-08-vector-databases.md | ✅ Complete |
+| 09 | RAG — Retrieval Augmented Generation | chapters/chapter-09-rag.md | ✅ Complete |
+| 10 | AI Agents & Tool Use | chapters/chapter-10-ai-agents.md | 🔜 Next |
 | 11 | Multi-Agent Systems | chapters/chapter-11-multi-agent.md | ⬜ |
 | 12 | Local AI: Ollama & LM Studio | chapters/chapter-12-local-ai.md | ⬜ |
 | 13 | Fine-Tuning & Model Customization | chapters/chapter-13-fine-tuning.md | ⬜ |
