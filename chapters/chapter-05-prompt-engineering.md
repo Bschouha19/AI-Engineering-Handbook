@@ -777,6 +777,49 @@ def get_user(username):
 print(review_code(vulnerable_code, SECURITY_REVIEWER))
 ```
 
+**Node.js role prompting:**
+
+```javascript
+// role-prompting.mjs
+import Anthropic from "@anthropic-ai/sdk";
+import "dotenv/config";
+
+const client = new Anthropic();
+
+const SECURITY_REVIEWER = `You are a senior security engineer with 15 years of experience
+in application security. Your specialty is identifying OWASP Top 10 vulnerabilities
+in Python web applications.
+
+When reviewing code:
+- Identify every security vulnerability you see
+- Classify each by severity: CRITICAL, HIGH, MEDIUM, LOW
+- Explain the attack vector for each vulnerability
+- Provide the corrected code for each issue
+- Do not comment on code style, performance, or architecture — only security
+
+If you find no vulnerabilities, say "No security issues found." and nothing else.`;
+
+async function reviewCode(code, roleSystem) {
+  const response = await client.messages.create({
+    model: "claude-sonnet-4-6",
+    max_tokens: 2048,
+    system: roleSystem,
+    messages: [{ role: "user", content: `Review this:\n\n\`\`\`python\n${code}\n\`\`\`` }],
+  });
+  return response.content[0].text;
+}
+
+const vulnerableCode = `
+def get_user(username):
+    conn = sqlite3.connect('users.db')
+    query = f"SELECT * FROM users WHERE username = '{username}'"
+    cursor.execute(query)
+    return cursor.fetchone()
+`;
+
+console.log(await reviewCode(vulnerableCode, SECURITY_REVIEWER));
+```
+
 ---
 
 ## 9. Advanced Implementation
@@ -1102,6 +1145,75 @@ def classify_urgency(ticket: str) -> str:
 
 print(classify_urgency("Our payment processing is down, no orders going through!"))   # CRITICAL
 print(classify_urgency("The export button is misaligned in the UI"))                   # LOW
+```
+
+**Node.js output control:**
+
+```javascript
+// output-control.mjs
+import Anthropic from "@anthropic-ai/sdk";
+import "dotenv/config";
+
+const client = new Anthropic();
+
+// Pattern 1: JSON in a fenced block
+const JSON_EXTRACTOR_SYSTEM = `You are a product information extractor.
+
+Extract information from the product description and return ONLY valid JSON
+in a fenced \`\`\`json block. No prose before or after.
+
+Required fields:
+{
+  "name": "string",
+  "price": number or null,
+  "currency": "string or null",
+  "category": "string",
+  "features": ["array", "of", "strings"],
+  "in_stock": boolean or null
+}
+
+If a field cannot be determined, use null.`;
+
+async function extractProductInfo(description) {
+  const response = await client.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 512,
+    system: JSON_EXTRACTOR_SYSTEM,
+    messages: [{ role: "user", content: description }],
+  });
+  const text = response.content[0].text;
+  const match = text.match(/```json\s*([\s\S]*?)\s*```/);
+  if (match) return JSON.parse(match[1]);
+  return JSON.parse(text); // fallback
+}
+
+// Pattern 2: Strict label output
+const STRICT_CLASSIFIER_SYSTEM = `Classify the urgency level of the support ticket.
+
+Output EXACTLY one of: CRITICAL | HIGH | MEDIUM | LOW
+
+CRITICAL: Production system down, data loss, security breach
+HIGH: Major feature broken, significant user impact
+MEDIUM: Minor feature broken, workaround exists
+LOW: Cosmetic issue, feature request, question
+
+Output only the label. Nothing else.`;
+
+async function classifyUrgency(ticket) {
+  const response = await client.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 8,
+    system: STRICT_CLASSIFIER_SYSTEM,
+    messages: [{ role: "user", content: ticket }],
+  });
+  const label = response.content[0].text.trim().toUpperCase();
+  const valid = new Set(["CRITICAL", "HIGH", "MEDIUM", "LOW"]);
+  if (!valid.has(label)) throw new Error(`Unexpected label: ${label}`);
+  return label;
+}
+
+console.log(await classifyUrgency("Payment processing is down!")); // CRITICAL
+console.log(await classifyUrgency("Button is slightly misaligned")); // LOW
 ```
 
 ---
