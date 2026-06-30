@@ -140,7 +140,7 @@ Token counting and cost attribution are your factory's meters. The goal is to ma
 - 100 tokens ≈ 75 words ≈ 400 characters
 - 1,000 tokens ≈ 750 words ≈ 1 A4 page of text
 - A 5-minute coding conversation: ~8,000–15,000 tokens
-- Claude Sonnet context window: 200,000 tokens
+- Claude Haiku 4.5 context window: 200,000 tokens; Claude Sonnet 4.6 and Opus 4.8: 1,000,000 tokens (1M)
 
 ---
 
@@ -162,13 +162,13 @@ Every major AI provider offers multiple model tiers at different capability leve
 
 | Model | Input (per MTok) | Output (per MTok) | Strength | Use for |
 |-------|------------------|-------------------|----------|---------|
-| Claude Haiku 4.5 | ~$0.80 | ~$4.00 | Fast, cheap, capable | Classification, routing, simple Q&A, content filtering |
+| Claude Haiku 4.5 | ~$1.00 | ~$5.00 | Fast, cheap, capable | Classification, routing, simple Q&A, content filtering |
 | Claude Sonnet 4.6 | ~$3.00 | ~$15.00 | Balanced | Most production tasks, code generation, analysis |
-| Claude Opus 4.8 | ~$15.00 | ~$75.00 | Most capable | Complex reasoning, novel problems, architecture review |
+| Claude Opus 4.8 | ~$5.00 | ~$25.00 | Most capable | Complex reasoning, novel problems, architecture review |
 
 > **Note:** These prices were accurate at time of writing. Check [anthropic.com/pricing](https://www.anthropic.com/pricing) for current rates.
 
-The price ratio between Haiku and Opus is approximately 20:1 on input and output. A task where Haiku produces 90% of the quality of Opus is worth doing with Haiku — especially for high-volume tasks.
+The price ratio between Haiku and Opus is approximately 5:1 on input and output. A task where Haiku produces 90% of the quality of Opus is worth doing with Haiku — especially for high-volume tasks.
 
 ---
 
@@ -184,8 +184,8 @@ The price ratio between Haiku and Opus is approximately 20:1 on input and output
 - **Saving: 90% on the system prompt portion**
 
 **Requirements (Anthropic):**
-- Minimum cacheable block: 1,024 tokens
-- Cache TTL: 5 minutes (resets on each cache hit — effectively persistent for active use)
+- Minimum cacheable block: 1,024 tokens for Sonnet and Opus models; **4,096 tokens for Haiku 4.5**
+- Cache TTL: 5 minutes (resets on each cache hit — effectively persistent for active use); optional 1-hour TTL available at 2× base input price
 - Marked with `cache_control: {"type": "ephemeral"}` in the API request
 - Cache write cost: 125% of regular input price (one-time, paid once per 5-minute window)
 
@@ -294,9 +294,9 @@ graph TD
     CLASSIFY --> COMPLEX["Complex tasks\narchitecture design, novel problems\nhigh reasoning required"]
     CLASSIFY --> VISION["Vision tasks\nimage understanding\nmulti-modal content"]
     
-    SIMPLE --> HAIKU["Claude Haiku 4.5\n~$0.80/MTok in\n~$4.00/MTok out"]
+    SIMPLE --> HAIKU["Claude Haiku 4.5\n~$1.00/MTok in\n~$5.00/MTok out"]
     MEDIUM --> SONNET["Claude Sonnet 4.6\n~$3.00/MTok in\n~$15.00/MTok out"]
-    COMPLEX --> OPUS["Claude Opus 4.8\n~$15.00/MTok in\n~$75.00/MTok out"]
+    COMPLEX --> OPUS["Claude Opus 4.8\n~$5.00/MTok in\n~$25.00/MTok out"]
     VISION --> SONNET
 
     HAIKU --> LOG["Log: model, tokens, cost,\nfeature, user_id"]
@@ -391,19 +391,19 @@ client = anthropic.Anthropic()
 # Current pricing as of mid-2026 — verify at anthropic.com/pricing before production use
 MODEL_PRICING = {
     "claude-haiku-4-5-20251001": {
-        "input":  0.80e-6,    # $0.80 per million input tokens
-        "output": 4.00e-6,    # $4.00 per million output tokens
+        "input":  1.00e-6,    # $1.00 per million input tokens
+        "output": 5.00e-6,    # $5.00 per million output tokens
         "context_window": 200_000,
     },
     "claude-sonnet-4-6": {
         "input":  3.00e-6,    # $3.00 per million input tokens
         "output": 15.00e-6,   # $15.00 per million output tokens
-        "context_window": 200_000,
+        "context_window": 1_000_000,
     },
     "claude-opus-4-8": {
-        "input":  15.00e-6,   # $15.00 per million input tokens
-        "output": 75.00e-6,   # $75.00 per million output tokens
-        "context_window": 200_000,
+        "input":  5.00e-6,    # $5.00 per million input tokens
+        "output": 25.00e-6,   # $25.00 per million output tokens
+        "context_window": 1_000_000,
     },
 }
 
@@ -670,8 +670,8 @@ def call_with_prompt_cache(
 
     # Calculate cost with cache awareness
     pricing = {
-        "claude-haiku-4-5-20251001": {"input": 0.80e-6, "output": 4.00e-6,
-                                       "cache_write": 1.00e-6, "cache_read": 0.08e-6},
+        "claude-haiku-4-5-20251001": {"input": 1.00e-6, "output": 5.00e-6,
+                                       "cache_write": 1.25e-6, "cache_read": 0.10e-6},
         "claude-sonnet-4-6":         {"input": 3.00e-6, "output": 15.00e-6,
                                        "cache_write": 3.75e-6, "cache_read": 0.30e-6},
     }
@@ -1072,7 +1072,7 @@ def ai_call_with_semantic_cache(
     # Store in semantic cache for future queries
     semantic_cache_store(query, response_text, namespace)
 
-    pricing = {"claude-haiku-4-5-20251001": (0.80e-6, 4.00e-6)}
+    pricing = {"claude-haiku-4-5-20251001": (1.00e-6, 5.00e-6)}
     in_rate, out_rate = pricing.get(model, (3.00e-6, 15.00e-6))
     cost = response.usage.input_tokens * in_rate + response.usage.output_tokens * out_rate
 
@@ -1187,7 +1187,7 @@ def calculate_batch_savings(requests: list[dict], model: str) -> dict:
     Compare standard vs batch API cost for a given workload.
     """
     STANDARD_PRICING = {
-        "claude-haiku-4-5-20251001": (0.80e-6, 4.00e-6),
+        "claude-haiku-4-5-20251001": (1.00e-6, 5.00e-6),
         "claude-sonnet-4-6":         (3.00e-6, 15.00e-6),
     }
     in_rate, out_rate = STANDARD_PRICING.get(model, (3.00e-6, 15.00e-6))
@@ -1257,16 +1257,16 @@ r = redis.Redis(decode_responses=True)
 
 MODEL_PRICING = {
     "claude-haiku-4-5-20251001": {
-        "input": 0.80e-6, "output": 4.00e-6,
-        "cache_write": 1.00e-6, "cache_read": 0.08e-6,
+        "input": 1.00e-6, "output": 5.00e-6,
+        "cache_write": 1.25e-6, "cache_read": 0.10e-6,
     },
     "claude-sonnet-4-6": {
         "input": 3.00e-6, "output": 15.00e-6,
         "cache_write": 3.75e-6, "cache_read": 0.30e-6,
     },
     "claude-opus-4-8": {
-        "input": 15.00e-6, "output": 75.00e-6,
-        "cache_write": 18.75e-6, "cache_read": 1.50e-6,
+        "input": 5.00e-6, "output": 25.00e-6,
+        "cache_write": 6.25e-6, "cache_read": 0.50e-6,
     },
 }
 
@@ -1554,9 +1554,9 @@ def print_cost_report() -> None:
 
 | Provider | Model | Input ($/MTok) | Output ($/MTok) | Context Window | Strengths |
 |----------|-------|----------------|-----------------|----------------|-----------|
-| **Anthropic** | Claude Haiku 4.5 | ~$0.80 | ~$4.00 | 200K | Fast, cheap, capable classification |
-| **Anthropic** | Claude Sonnet 4.6 | ~$3.00 | ~$15.00 | 200K | Best balance, most production tasks |
-| **Anthropic** | Claude Opus 4.8 | ~$15.00 | ~$75.00 | 200K | Strongest reasoning, complex tasks |
+| **Anthropic** | Claude Haiku 4.5 | ~$1.00 | ~$5.00 | 200K | Fast, cheap, capable classification |
+| **Anthropic** | Claude Sonnet 4.6 | ~$3.00 | ~$15.00 | 1M | Best balance, most production tasks |
+| **Anthropic** | Claude Opus 4.8 | ~$5.00 | ~$25.00 | 1M | Strongest reasoning, complex tasks |
 | **OpenAI** | GPT-4o mini | ~$0.15 | ~$0.60 | 128K | Cheapest capable model, OpenAI ecosystem |
 | **OpenAI** | GPT-4o | ~$2.50 | ~$10.00 | 128K | Strong coding, function calling |
 | **Google** | Gemini 1.5 Flash | ~$0.075 | ~$0.30 | 1M | Cheapest for long-context, large file processing |
@@ -2045,10 +2045,10 @@ Implement `semantic_cache_lookup()` and `semantic_cache_store()`. Populate the c
 3. Cost estimate:
    - Current: 100% Opus at $3,000/month
    - With routing (assuming token counts stay constant):
-     - 70% Haiku: 70% × ($3,000 × $0.80/$15.00) = 70% × $160 = $112
-     - 25% Sonnet: 25% × ($3,000 × $3.00/$15.00) = 25% × $600 = $150
+     - 70% Haiku: 70% × ($3,000 × $1.00/$5.00) = 70% × $600 = $420
+     - 25% Sonnet: 25% × ($3,000 × $3.00/$5.00) = 25% × $1,800 = $450
      - 5% Opus: 5% × $3,000 = $150
-   - New total: ~$412/month — approximately **86% reduction**
+   - New total: ~$1,020/month — approximately **66% reduction**
    - (Actual result depends on token counts per tier, but order of magnitude is accurate.)
 
 4. Exact match caching: stores the full response keyed by a hash of the full prompt. Best for: health check endpoints that send identical prompts repeatedly, or automated evaluation runs with fixed prompts. Wrong for: user-facing chat where every message is unique. Prompt caching: stores the system prompt prefix on the provider's servers. Best for: any system with a large (>1,024 token) system prompt that stays the same across requests. Wrong for: system prompts that change per user, per request, or that are shorter than 1,024 tokens. Semantic caching: stores responses keyed by embedding of the query. Best for: FAQ-style use cases where users ask the same question in different ways. Wrong for: open-ended creative or analytical tasks where slight wording differences should produce different responses.
@@ -2144,9 +2144,9 @@ Build a customer support chatbot with every cost engineering technique from this
 | Topic | Key Takeaway |
 |-------|-------------|
 | Token economy | Every character in and out is metered; input and output priced differently |
-| Model tiers | Haiku:Opus price ratio is ~20:1 — use the cheapest model that works |
+| Model tiers | Haiku:Opus price ratio is ~5:1 — use the cheapest model that works |
 | `max_tokens` | Always set it; it is the per-call cost ceiling; log when it triggers |
-| Prompt caching | Mark system prompts >1,024 tokens with `cache_control`; 90% cost reduction |
+| Prompt caching | Mark system prompts >1,024 tokens (>4,096 for Haiku) with `cache_control`; 90% cost reduction |
 | Semantic caching | Cache by embedding similarity; 40–70% cache hit rate for FAQ-style use cases |
 | Exact match caching | Near-zero cost for identical repeated calls; low hit rate in real chat |
 | Model routing | Classify each request and assign the cheapest sufficient model |

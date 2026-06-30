@@ -1048,7 +1048,7 @@ async def rag_query(
     latency_ms = int(time.time() * 1000 - start_ms)
     cache_read = getattr(response.usage, "cache_read_input_tokens", 0)
 
-    pricing = {"claude-haiku-4-5-20251001": (0.80e-6, 4.00e-6)}
+    pricing = {"claude-haiku-4-5-20251001": (1.00e-6, 5.00e-6)}
     in_rate, out_rate = pricing.get(model, (3.00e-6, 15.00e-6))
     cost = response.usage.input_tokens * in_rate + response.usage.output_tokens * out_rate
 
@@ -1801,7 +1801,7 @@ def ingest_documents():
     metadatas = [doc["metadata"] for doc in SAMPLE_DOCUMENTS]
 
     # Generate embeddings with Voyage AI
-    result = vo.embed(texts, model="voyage-3")
+    result = vo.embed(texts, model="voyage-4", input_type="document")
     embeddings = result.embeddings
 
     collection.upsert(ids=ids, documents=texts, embeddings=embeddings, metadatas=metadatas)
@@ -2023,25 +2023,29 @@ The security architecture in SupportAI implements all six layers from Chapter 18
 
 At 10,000 daily active users, each sending an average of 3 messages per session:
 
-| Component | Model | Avg tokens | Daily cost |
-|-----------|-------|-----------|------------|
-| Intent classifier | Haiku | ~100 input + 30 output | ~$0.03/1K calls |
-| FAQ/RAG answers | Haiku + cache | ~2,000 input + 300 output | ~$0.50/1K calls |
-| Agent (order status) | Sonnet | ~3,000 input + 400 output | ~$3.00/1K calls |
-| Vision analysis | Sonnet | ~1,500 input + 300 output | ~$2.00/1K calls |
-| Output filter | Haiku | ~600 input + 30 output | ~$0.02/1K calls |
+| Component | Model | Avg tokens | Cost per call | Cost per 1K calls |
+|-----------|-------|-----------|--------------|------------------|
+| Intent classifier | Haiku | ~100 in + 30 out | ~$0.000250 | ~$0.25 |
+| FAQ/RAG answers | Haiku + cache | ~2,000 in + 300 out (after cache: ~300 in) | ~$0.002 raw / ~$0.00048 cached | ~$0.48 cached |
+| Agent (order status) | Sonnet | ~3,000 in + 400 out | ~$0.015 | ~$15.00 |
+| Vision analysis | Sonnet | ~1,500 in + 300 out | ~$0.009 | ~$9.00 |
+| Output filter | Haiku | ~600 in + 30 out | ~$0.00075 | ~$0.75 |
 
-**At 30,000 queries/day (10K users × 3 messages):**
-- ~60% FAQ/RAG: 18,000 calls × $0.50/1K = $9.00/day
-- ~30% Agent: 9,000 calls × $3.00/1K = $27.00/day
-- ~10% Vision: 3,000 calls × $2.00/1K = $6.00/day
-- Classifiers + filters: 30,000 calls × $0.05/1K = $1.50/day
-- **Estimated daily total: ~$43.50/day ($1,300/month)**
+> **Note:** Haiku: $1/$5 per MTok. Sonnet: $3/$15. All pricing verified June 2026 — check [anthropic.com/pricing](https://www.anthropic.com/pricing) before production decisions.
 
-**With optimisations:**
-- Prompt caching on system prompts: -$8/day
-- Semantic cache (40% hit rate on FAQ): -$3.60/day
-- **Optimised daily total: ~$32/day ($960/month)**
+**At 30,000 queries/day (10K users × 3 messages), without caching:**
+- ~60% FAQ/RAG (Haiku): 18,000 calls × $2.00/1K = $36.00/day
+- ~30% Agent (Sonnet): 9,000 calls × $15.00/1K = $135.00/day
+- ~10% Vision (Sonnet): 3,000 calls × $9.00/1K = $27.00/day
+- Classifiers + filters: 30,000 calls × $1.00/1K = $30.00/day
+- **Estimated daily total without caching: ~$228/day (~$6,840/month)**
+
+**With caching and routing optimisations:**
+- Prompt caching on FAQ system prompts (90% read hit rate): saves ~$29/day on FAQ
+- Semantic cache at 40% hit rate on FAQ queries: saves ~$14.40/day
+- **Optimised daily total: ~$185/day (~$5,550/month)**
+
+This is the realistic operating cost of a production AI support system handling mid-sized e-commerce volume. The dominant cost is agent queries (Sonnet) — a strong incentive to classify clearly and route FAQ questions to the cheaper RAG+Haiku path.
 
 This is the cost of operating a serious AI-powered support system for a mid-sized e-commerce business.
 
