@@ -79,8 +79,8 @@
 | 15 | [Production Architecture: Building AI at Scale](./chapters/chapter-15-production-architecture.md) | ✅ | Rate limiting, queuing, caching, fallbacks, load balancing |
 | 16 | [Testing & Evaluating AI Systems](./chapters/chapter-16-testing-evaluation.md) | ✅ | Unit testing, integration testing, golden sets, LLM-as-judge, evals |
 | 17 | [AI Observability: Monitoring & Tracing](./chapters/chapter-17-observability.md) | ✅ | LangSmith, Helicone, OpenTelemetry, logging, alerting |
-| 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | 🔜 | Threat modelling, prompt injection, content filtering, red-teaming |
-| 19 | [Cost Engineering: Running AI Without Going Broke](./chapters/chapter-19-cost-engineering.md) | ⬜ | Token budgets, caching strategy, model routing, batch processing |
+| 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | ✅ | Threat modelling, prompt injection, content filtering, red-teaming |
+| 19 | [Cost Engineering: Running AI Without Going Broke](./chapters/chapter-19-cost-engineering.md) | 🔜 | Token budgets, caching strategy, model routing, batch processing |
 | 20 | [Capstone: Build a Production AI System End-to-End](./chapters/chapter-20-capstone.md) | ⬜ | Integrates all 19 chapters into one complete production system |
 
 **Module 5 Learning Goal:** Deploy AI systems that are observable, secure, cost-controlled, and reliable enough for production traffic.
@@ -151,9 +151,9 @@ Ch 15–19 (All production chapters)
 
 | Status | Count |
 |--------|-------|
-| ✅ Complete | 17 |
+| ✅ Complete | 18 |
 | 🔜 Next | 1 |
-| ⬜ Not started | 2 |
+| ⬜ Not started | 1 |
 
 ---
 
