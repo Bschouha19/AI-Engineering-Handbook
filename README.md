@@ -163,7 +163,7 @@ Start here: [Chapter 1 — What is AI Engineering?](./chapters/chapter-01-what-i
 
 | Volume | Title | Status | Repository |
 |--------|-------|--------|-----------|
-| **1** | **AI Engineering — From Zero to Production** | ✅ Complete (20 chapters) | [AI-Engineering](https://github.com/Bschouha19/AI-Engineering) |
+| **1** | **AI Engineering — From Zero to Production** | ✅ Complete (20 chapters) | [AI-Engineering-Handbook](https://github.com/Bschouha19/AI-Engineering-Handbook) |
 | 2 | MCP Engineering | 🔄 In Progress | [MCP-Engineering](https://github.com/Bschouha19/MCP-Engineering) |
 | 3 | AI Agent Engineering | 🔜 Planned | — |
 | 4 | n8n AI Workflow Automation | 🔜 Planned | — |
