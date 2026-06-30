@@ -159,21 +159,24 @@ Start here: [Chapter 1 — What is AI Engineering?](./chapters/chapter-01-what-i
 
 ---
 
-## Future Volumes
+## The AI Engineering Handbook Series
 
-This is Volume 1 of a planned 12-volume series. Future volumes cover:
+| Volume | Title | Status | Repository |
+|--------|-------|--------|-----------|
+| **1** | **AI Engineering — From Zero to Production** | ✅ Complete (20 chapters) | [AI-Engineering](https://github.com/Bschouha19/AI-Engineering) |
+| 2 | MCP Engineering | 🔄 In Progress | [MCP-Engineering](https://github.com/Bschouha19/MCP-Engineering) |
+| 3 | AI Agent Engineering | 🔜 Planned | — |
+| 4 | n8n AI Workflow Automation | 🔜 Planned | — |
+| 5 | RAG Deep Dive | 🔜 Planned | — |
+| 6 | Vector Database Engineering | 🔜 Planned | — |
+| 7 | Coding Agents | 🔜 Planned | — |
+| 8 | DevOps AI | 🔜 Planned | — |
+| 9 | Technical PM AI | 🔜 Planned | — |
+| 10 | Enterprise AI Systems | 🔜 Planned | — |
+| 11 | AI Architecture Patterns | 🔜 Planned | — |
+| 12 | Real Production Case Studies | 🔜 Planned | — |
 
-- **Volume 2:** MCP Engineering
-- **Volume 3:** AI Agent Engineering
-- **Volume 4:** n8n AI Workflow Automation
-- **Volume 5:** RAG Deep Dive
-- **Volume 6:** Vector Database Engineering
-- **Volume 7:** Coding Agents
-- **Volume 8:** DevOps AI
-- **Volume 9:** Technical PM AI
-- **Volume 10:** Enterprise AI Systems
-- **Volume 11:** AI Architecture Patterns
-- **Volume 12:** Real Production Case Studies
+**Next:** Continue with [Volume 2 — MCP Engineering](https://github.com/Bschouha19/MCP-Engineering) after completing all 20 chapters of this volume.
 
 See [ROADMAP.md](./ROADMAP.md) for the full plan.
 
