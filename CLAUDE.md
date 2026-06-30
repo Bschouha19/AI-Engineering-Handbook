@@ -598,8 +598,8 @@ Every chapter must contribute toward at least one of these twelve capabilities. 
 | 16 | Testing & Evaluating AI Systems | chapters/chapter-16-testing-evaluation.md | ✅ Complete |
 | 17 | AI Observability & Monitoring | chapters/chapter-17-observability.md | ✅ Complete |
 | 18 | AI Security & Safety | chapters/chapter-18-security.md | ✅ Complete |
-| 19 | Cost Engineering | chapters/chapter-19-cost-engineering.md | 🔜 Next |
-| 20 | Capstone Project | chapters/chapter-20-capstone.md | ⬜ |
+| 19 | Cost Engineering | chapters/chapter-19-cost-engineering.md | ✅ Complete |
+| 20 | Capstone Project | chapters/chapter-20-capstone.md | 🔜 Next |
 
 ---
 
