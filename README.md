@@ -30,7 +30,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 
 ## Progress
 
-**19 of 20 chapters complete** — Chapter 19 (Cost Engineering: Running AI Without Going Broke) now complete.
+**20 of 20 chapters complete** — Volume 1 is complete.
 
 | Module | Chapters | Status |
 |--------|----------|--------|
@@ -38,7 +38,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 | 2 — Working with AI APIs | Ch 04–06 | ✅ Complete |
 | 3 — Building AI Applications | Ch 07–10 | ✅ Complete |
 | 4 — Advanced AI Systems | Ch 11–14 | ✅ Complete |
-| 5 — Production AI Engineering | Ch 15–20 | 🔜 Ch 20 next |
+| 5 — Production AI Engineering | Ch 15–20 | ✅ Complete |
 
 ---
 
@@ -87,7 +87,7 @@ The goal is not a reader who can explain AI. The goal is a reader who can delive
 | 17 | [AI Observability: Monitoring & Tracing](./chapters/chapter-17-observability.md) | ✅ Complete |
 | 18 | [AI Security: Prompt Injection, Safety & Red-Teaming](./chapters/chapter-18-security.md) | ✅ Complete |
 | 19 | [Cost Engineering: Running AI Without Going Broke](./chapters/chapter-19-cost-engineering.md) | ✅ Complete |
-| 20 | [Capstone: Build a Production AI System End-to-End](./chapters/chapter-20-capstone.md) | 🔜 |
+| 20 | [Capstone: Build a Production AI System End-to-End](./chapters/chapter-20-capstone.md) | ✅ Complete |
 
 ---
 
